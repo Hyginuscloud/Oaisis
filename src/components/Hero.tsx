@@ -11,18 +11,34 @@ interface HeroProps {
 export const Hero: React.FC<HeroProps> = ({ onOpenCart, config, onImageClick }) => {
   const { hero } = config;
   const heroMedia = config.mediaGallery.find((m) => m.placement === 'hero');
+  const heroBackgroundUrl = (hero.heroBackgroundUrl ?? '').trim();
 
   return (
     <section
       id="home"
-      className="relative overflow-hidden bg-gradient-to-br from-[#071630] via-[#0B2147] to-[#0E2B5C] text-white"
+      className="relative overflow-hidden bg-gradient-to-br from-[#0F347A] via-[#1D4ED8] to-[#2563EB] text-white"
     >
+      {heroBackgroundUrl && (
+        <>
+          <img
+            src={heroBackgroundUrl}
+            alt=""
+            aria-hidden="true"
+            referrerPolicy="no-referrer"
+            className="pointer-events-none absolute inset-0 w-full h-full object-cover object-center"
+          />
+          <div
+            className="pointer-events-none absolute inset-0 bg-gradient-to-br from-[#0F347A]/80 via-[#1D4ED8]/75 to-[#2563EB]/80"
+            aria-hidden="true"
+          />
+        </>
+      )}
       <div
-        className="pointer-events-none absolute -top-24 -right-24 w-[540px] h-[540px] rounded-full bg-sky-400/10 blur-3xl"
+        className="pointer-events-none absolute -top-24 -right-24 w-[540px] h-[540px] rounded-full bg-sky-300/20 blur-3xl"
         aria-hidden="true"
       />
 
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 sm:py-16 lg:py-20">
+      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 sm:py-16 lg:py-20">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12 items-center">
           {/* Left Content Column */}
           <div className="lg:col-span-7 space-y-5 sm:space-y-6 text-center lg:text-left">
@@ -34,12 +50,12 @@ export const Hero: React.FC<HeroProps> = ({ onOpenCart, config, onImageClick }) 
             </div>
 
             <h1 className="font-extrabold tracking-tight leading-[1.08] text-3xl sm:text-5xl lg:text-[3.5rem] max-w-xl mx-auto lg:mx-0 text-balance">
-              <span className="bg-gradient-to-r from-amber-200 via-amber-400 to-rose-400 bg-clip-text text-transparent">
+              <span className="bg-gradient-to-r from-amber-200 via-amber-300 to-white bg-clip-text text-transparent">
                 {hero.headline}
               </span>
             </h1>
 
-            <p className="text-slate-200/90 text-sm sm:text-base lg:text-lg leading-relaxed max-w-xl mx-auto lg:mx-0">
+            <p className="text-blue-50/90 text-sm sm:text-base lg:text-lg leading-relaxed max-w-xl mx-auto lg:mx-0">
               {hero.subtitle}
             </p>
 
@@ -62,11 +78,11 @@ export const Hero: React.FC<HeroProps> = ({ onOpenCart, config, onImageClick }) 
               </button>
             </div>
 
-            <div className="flex flex-wrap items-center justify-center lg:justify-start gap-x-6 gap-y-2 pt-2 text-xs sm:text-sm font-medium text-slate-200">
+            <div className="flex flex-wrap items-center justify-center lg:justify-start gap-x-6 gap-y-2 pt-2 text-xs sm:text-sm font-medium text-blue-50">
               {hero.trustPoints.map((point) => (
                 <span key={point} className="inline-flex items-center gap-1.5">
                   <span>{point}</span>
-                  <Check className="w-3.5 h-3.5 text-emerald-400" />
+                  <Check className="w-3.5 h-3.5 text-emerald-300" />
                 </span>
               ))}
             </div>
@@ -141,15 +157,15 @@ export const Hero: React.FC<HeroProps> = ({ onOpenCart, config, onImageClick }) 
             ) : (
               <div className="relative w-64 h-64 sm:w-84 sm:h-84 flex items-center justify-center">
                 <div
-                  className="absolute inset-0 rounded-full border border-white/10"
+                  className="absolute inset-0 rounded-full border border-white/15"
                   aria-hidden="true"
                 />
                 <div
-                  className="absolute inset-6 rounded-full border border-white/15 bg-white/[0.02]"
+                  className="absolute inset-6 rounded-full border border-white/20 bg-white/[0.04]"
                   aria-hidden="true"
                 />
                 <div
-                  className="absolute inset-14 rounded-full border border-white/15 bg-white/[0.03]"
+                  className="absolute inset-14 rounded-full border border-white/25 bg-white/[0.06]"
                   aria-hidden="true"
                 />
 

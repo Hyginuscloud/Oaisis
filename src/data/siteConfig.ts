@@ -81,6 +81,7 @@ export interface SiteConfig {
     emblemTitle: string;
     emblemSubtitle: string;
     heroImageUrl: string;
+    heroBackgroundUrl?: string;
   };
   categoriesSection: {
     eyebrow: string;
@@ -175,6 +176,7 @@ export const DEFAULT_SITE_CONFIG: SiteConfig = {
     emblemTitle: 'MEDITRUST',
     emblemSubtitle: 'CARE YOU CAN COUNT ON',
     heroImageUrl: '',
+    heroBackgroundUrl: '',
   },
   categoriesSection: {
     eyebrow: 'SHOP BY CATEGORY',
